@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import './index.css';
 
 export default function NavBar() {
     return (
@@ -38,7 +38,7 @@ export default function NavBar() {
                         fontWeight: 500,
                         marginLeft: '15px',
                         width: '120px',
-                        backgroundColor: '#fff',
+                        
                         marginRight: '20px',
                     }}
                 >
