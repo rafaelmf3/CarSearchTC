@@ -29,6 +29,7 @@ export default function NavBar({ callbackParent }) {
           <input
             type="text"
             placeholder="Pesquise por um veículo"
+            autoComplete={false}
             onChange={e => callbackParent(e.target.value)}
             style={{
               backgroundColor: '#1A2433',
@@ -45,7 +46,7 @@ export default function NavBar({ callbackParent }) {
           />
         </Link>
         <button
-          onClick={() => history.push('/details')}
+          onClick={() => history.push('/newcar')}
           type="button"
           style={{
             border: 0,

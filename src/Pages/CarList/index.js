@@ -44,55 +44,55 @@ export default function CarList() {
         }}
       >
         <NavBar callbackParent={value => searchCar(value)} />
-        <div id="row">
-          <table>
-            <tbody>
-              {carList.map(item => {
-                return [
-                  <tr
-                    onClick={() => {
-                      console.tron.log('hello');
-                    }}
-                    style={{}}
-                  >
-                    <td>
-                      <p
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: 'bold',
-                        }}
-                      >
-                        {item.title}
-                      </p>
-                      <p>
-                        <strong>
-                          {item.model} * {item.brand} * {item.km} KM
-                        </strong>
-                      </p>
-                    </td>
-                    <td
+        <table>
+          <tbody>
+            {carList.map(item => {
+              return [
+                <tr
+                  onClick={() => {
+                    console.tron.log('hello');
+                  }}
+                >
+                  <td className="modelo">
+                    <p
                       style={{
-                        textAlign: 'right',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
                       }}
                     >
-                      <p
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: 'bold',
-                        }}
-                      >
-                        R$ {item.price}
-                      </p>
-                      <p>
-                        <strong>{item.year}</strong>
-                      </p>
-                    </td>
-                  </tr>,
-                ];
-              })}
-            </tbody>
-          </table>
-        </div>
+                      {item.title}
+                    </p>
+                    <p>
+                      <strong>
+                        {item.model} * {item.brand} * {item.km} KM
+                      </strong>
+                    </p>
+                  </td>
+
+                  <td
+                    className="price"
+                    style={{
+                      textAlign: 'right',
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      R$ {item.price}
+                    </p>
+                    <p>
+                      <strong>{item.year}</strong>
+                    </p>
+                  </td>
+                </tr>,
+                <hr />,
+              ];
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

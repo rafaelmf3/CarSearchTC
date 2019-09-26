@@ -1,0 +1,66 @@
+form {
+  display: flex;
+  margin-right: 8vw;
+  flex-direction: column;
+  /* background: rgba(255,255,255,0.3); */
+  height: 50vh;
+}
+
+form > input {
+  padding: 10px;
+  margin: 80px 50px 10px 50px;
+  background: rgba(255,255,255,0);
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+form > div {
+  margin: 10px 50px;
+  padding: 10px;
+}
+
+form select {
+  border-radius: 4px;
+  background-color:  rgba(255,255,255,0);
+  color: white;
+  padding: 10px;
+  margin: 10px 50px;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+form div input {
+  /* padding: 10px; */
+  background: rgba(255,255,255,0);
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.buttonsDiv {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonsDiv button {
+  justify-content: right;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 4px;
+  color: white;
+  margin-left: 10px;
+  background-color: rgba(255,255,255,0);
+  border: 1px solid rgba(255,255,255,1);
+}
+
+.buttonsDiv > :nth-last-child(1) {
+  color: #000;
+  background-color: rgba(255,255,255,1);
+  border: 2px solid rgba(255,255,255,0.2);
+}

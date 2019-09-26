@@ -1,9 +1,22 @@
 import React from 'react';
 
+import api from '../../services/api';
+
 import SideBar from '../../components/SideBar';
 import NavBar from '../../components/NavBar';
+import Form from '../../components/Form';
 
 export default function NewCar() {
+  function createCar(e) {
+    async function carCreateOrEdit() {
+      const { data } = await api.post('/cars', {
+        e,
+      });
+      console.tron.log(data);
+    }
+    carCreateOrEdit();
+  }
+
   return (
     <div
       style={{
@@ -19,27 +32,7 @@ export default function NewCar() {
         }}
       >
         <NavBar />
-
-        <form>
-          <input type="text" />
-          <div>
-            <input type="text" />
-            <input type="text" />
-          </div>
-          <select>
-            <option>VW</option>
-          </select>
-          <div>
-            <input type="text" />
-            <input type="text" />
-          </div>
-          <div>
-            <input type="text" />
-          </div>
-          <button type="button">Remover</button>
-          <button type="button">Cancelar</button>
-          <button type="button">Salvar</button>
-        </form>
+        <Form callbackData={e => createCar(e)} />
       </div>
     </div>
   );
