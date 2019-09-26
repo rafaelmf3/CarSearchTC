@@ -1,3 +1,25 @@
-table:hover {
+#container {
+    display: flex;
+}
+
+tr:hover {
     background-color: rgba(255,255,255,0.1);
+}
+
+#row {
+  display: flex;
+  flex: 1;
+  margin-top: 35px;
+}
+
+table {
+  display: flex;
+  flex: 0.8;
+  margin: 70px 0 50px 50px;
+}
+
+tr {
+  border-spacing: '30px';
+  border-bottom: '1px solid rgba(255,255,255,0.2)';
+  margin-left: '50px';
 }

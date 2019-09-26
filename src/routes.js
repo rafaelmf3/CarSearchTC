@@ -1,5 +1,5 @@
-import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Router, Switch, Route } from 'react-router-dom';
 
 import './config/ReactotronConfig';
 
@@ -15,6 +15,6 @@ export default function App() {
       <Route path="/" exact component={Home} />
       <Route path="/cars" component={CarList} />
       <Route path="/details" component={CarDetails} />
-    </Router>       
-  )
+    </Router>
+  );
 }

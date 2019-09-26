@@ -3,7 +3,7 @@ import React from 'react';
 import SideBar from '../../components/SideBar';
 import NavBar from '../../components/NavBar';
 
-export default function CarDetails() {
+export default function NewCar() {
   return (
     <div
       style={{
