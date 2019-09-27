@@ -6,21 +6,9 @@ import logotc from '../../assets/img/logo-tc.png';
 
 export default function SideBar() {
   return (
-    <div
-      style={{
-        backgroundColor: '#0E1823',
-        width: '400px',
-        display: 'flex',
-        justifyContent: 'center',
-        height: '100vh',
-      }}
-    >
+    <div className="sidecontainer">
       <Link to="/">
-        <img
-          src={logotc}
-          alt="logotc"
-          style={{ height: '80px', marginTop: '50px' }}
-        />
+        <img className="image" src={logotc} alt="logotc" />
       </Link>
     </div>
   );

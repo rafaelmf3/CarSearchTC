@@ -1,94 +1,82 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 
 import api from '../../services/api';
 
+import useCarContext from '../CarForm/hooks/useCarContext';
+import history from '../../services/history';
 import SideBar from '../../components/SideBar';
 import NavBar from '../../components/NavBar';
+
+import { formatPrice } from '../../util/format';
 
 import './index.css';
 
 export default function CarList() {
-  const [car, setCar] = useState('');
+  const [carFilter, setCarFilter] = useState('');
   const [carList, setCarList] = useState([]);
 
   useEffect(() => {
     async function apiCall() {
       const { data } = await api.get('/cars', {
         params: {
-          search: car,
+          search: carFilter,
         },
       });
       setCarList(data.cars);
     }
 
     apiCall();
-  }, [car]);
+  }, [carFilter]);
+
+  const { setEditingCar } = useCarContext();
 
   function searchCar(value) {
-    setCar(value);
+    setCarFilter(value);
+  }
+
+  function handleEditCar(car) {
+    return () => {
+      setEditingCar(car);
+      history.push('/newcar');
+    };
   }
 
   return (
-    <div
-      className="container"
-      style={{
-        display: 'flex',
-      }}
-    >
+    <div className="carListContainer">
       <SideBar />
-      <div
-        style={{
-          width: '100%',
-          height: '100px',
-          backgroundColor: '#1A2433',
-        }}
-      >
+      <div className="carListContent">
         <NavBar callbackParent={value => searchCar(value)} />
         <table>
           <tbody>
             {carList.map(item => {
+              const { id } = item;
               return [
-                <tr
-                  onClick={() => {
-                    console.tron.log('hello');
-                  }}
-                >
-                  <td className="modelo">
-                    <p
+                <Fragment key={id}>
+                  <tr onClick={handleEditCar(item)}>
+                    <td className="modelo">
+                      <h2>
+                        <strong>{item.title}</strong>
+                      </h2>
+                      <p>
+                        <strong>
+                          {item.model} * {item.brand} * {item.km} KM
+                        </strong>
+                      </p>
+                    </td>
+                    <td
+                      className="price"
                       style={{
-                        fontSize: '18px',
-                        fontWeight: 'bold',
+                        textAlign: 'right',
                       }}
                     >
-                      {item.title}
-                    </p>
-                    <p>
-                      <strong>
-                        {item.model} * {item.brand} * {item.km} KM
-                      </strong>
-                    </p>
-                  </td>
-
-                  <td
-                    className="price"
-                    style={{
-                      textAlign: 'right',
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: '18px',
-                        fontWeight: 'bold',
-                      }}
-                    >
-                      R$ {item.price}
-                    </p>
-                    <p>
-                      <strong>{item.year}</strong>
-                    </p>
-                  </td>
-                </tr>,
-                <hr />,
+                      <h2>{formatPrice(item.price)}</h2>
+                      <p>
+                        <strong>{item.year}</strong>
+                      </p>
+                    </td>
+                  </tr>
+                  <hr />
+                </Fragment>,
               ];
             })}
           </tbody>

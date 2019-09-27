@@ -1,5 +1,11 @@
-#container {
+.carListContainer {
     display: flex;
+}
+
+.carListContent {
+  width: 100%;
+  height: 100px;
+  background-color: #1A2433;
 }
 
 tr:hover {

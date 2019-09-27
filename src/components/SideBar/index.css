@@ -5,3 +5,16 @@ div {
     justify-content: center;
     height: 100vh; */
 }
+
+.sidecontainer {
+  background-color: #0E1823;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.image {
+  height: 80px;
+  margin-top: 50px;
+}
